@@ -40,7 +40,7 @@ public class CookwareRepository {
     }
     
      public List<Cookware> getClotheByPrice(Integer precio){
-        return  cookwareCrudRepository.findByPrice(precio);
+        return  cookwareCrudRepository.findByPriceNotLike(precio);
     }
      
      public List<Cookware> getClotheByDescription(String dc){

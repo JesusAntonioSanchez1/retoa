@@ -19,7 +19,8 @@ public interface CookwareCrudRepository extends MongoRepository<Cookware, String
     
     public Optional<Cookware> findById(String id); 
     
-    public List<Cookware> findByPrice(Integer precio);
+    //public List<Cookware> findByPrice(Integer precio);
+    public List<Cookware> findByPriceNotLike(Integer precio);
     
     public List<Cookware> findByDescriptionContainingIgnoreCase(String title);
     
