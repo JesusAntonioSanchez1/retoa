@@ -7,6 +7,7 @@ package co.sergioarboleda.retos.repository;
 
 
 import co.sergioarboleda.retos.entity.Cookware;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -17,5 +18,10 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface CookwareCrudRepository extends MongoRepository<Cookware, String>{
     
     public Optional<Cookware> findById(String id); 
+    
+    public List<Cookware> findByPrice(Integer precio);
+    
+    public List<Cookware> findByDescriptionContainingIgnoreCase(String title);
+    
     
 }

@@ -95,5 +95,13 @@ public class CookwareService {
             return id;
         }
     }
+     
+      public List<Cookware> getClotheByPrice(Integer precio){
+        return cookwareRepository.getClotheByPrice(precio);
+    }
+      
+      public List<Cookware> getClotheByDescription(String dc){
+        return cookwareRepository.getClotheByDescription(dc);
+    }
    
 }

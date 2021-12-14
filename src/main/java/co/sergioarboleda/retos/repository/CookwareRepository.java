@@ -39,5 +39,13 @@ public class CookwareRepository {
         cookwareCrudRepository.deleteById(id);
     }
     
+     public List<Cookware> getClotheByPrice(Integer precio){
+        return  cookwareCrudRepository.findByPrice(precio);
+    }
+     
+     public List<Cookware> getClotheByDescription(String dc){
+        return  cookwareCrudRepository.findByDescriptionContainingIgnoreCase(dc);
+    }
+    
     
 }

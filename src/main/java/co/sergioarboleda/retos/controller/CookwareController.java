@@ -50,4 +50,14 @@ public class CookwareController {
        return cookwareService.deleteById(id);
     }
     
+    @GetMapping("/price/{precio}")
+    public List<Cookware> getCloneByPrice(@PathVariable("precio") Integer precio){
+        return cookwareService.getClotheByPrice(precio);
+    }
+    
+    @GetMapping("/description/{dc}")
+    public List<Cookware> getCloneByDescription(@PathVariable("dc") String dc){
+        return cookwareService.getClotheByDescription(dc);
+    }
+    
 }
