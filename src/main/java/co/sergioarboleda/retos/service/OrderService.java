@@ -7,6 +7,10 @@ package co.sergioarboleda.retos.service;
 
 import co.sergioarboleda.retos.entity.Order;
 import co.sergioarboleda.retos.repository.OrderRepository;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,17 +108,15 @@ public class OrderService {
         return orderRepository.getOrdersByStatusAndId(status,ids);
         
     }
-    
-    
-    
-    
-    public List <Order> getByRegisterDayAndSalesManId(String registerDay, Integer id){
-        return orderRepository.getByRegisterDayAndSalesManId(registerDay,id);
-   
+   public List <Order> getByRegisterDayAndSalesManId(String registerDay, Integer id){
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate today = LocalDate.parse(registerDay,f);
+        LocalDate tomorrow = today.plusDays(1);
+        LocalDate yesterday = today.minusDays(1);
+        Date fecha1 = Date.from(yesterday.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        Date fecha2 = Date.from(tomorrow.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+        return orderRepository.getByRegisterDayAndSalesManId(fecha1,fecha2,id);
      }
 
-     
-
-     
     
 }
