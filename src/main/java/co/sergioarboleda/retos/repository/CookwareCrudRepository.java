@@ -24,5 +24,7 @@ public interface CookwareCrudRepository extends MongoRepository<Cookware, String
     
     public List<Cookware> findByDescriptionContainingIgnoreCase(String title);
     
+     public Optional<Cookware> findByReference(String reference);
+    
     
 }

@@ -103,5 +103,10 @@ public class CookwareService {
       public List<Cookware> getClotheByDescription(String dc){
         return cookwareRepository.getClotheByDescription(dc);
     }
+      
+       public Cookware getCookwareByReference(String reference){
+        return cookwareRepository.getCookwareByReference(reference).orElse(new Cookware());  
+      //  return clotheRepository.getClotheByReference(reference);
+    }
    
 }

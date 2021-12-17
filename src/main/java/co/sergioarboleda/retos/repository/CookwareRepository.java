@@ -46,6 +46,11 @@ public class CookwareRepository {
      public List<Cookware> getClotheByDescription(String dc){
         return  cookwareCrudRepository.findByDescriptionContainingIgnoreCase(dc);
     }
+     
+     public Optional <Cookware> getCookwareByReference(String reference){
+        return  cookwareCrudRepository.findByReference(reference);
+    }
+    
     
     
 }

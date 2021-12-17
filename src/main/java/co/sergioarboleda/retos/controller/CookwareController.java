@@ -60,4 +60,9 @@ public class CookwareController {
         return cookwareService.getClotheByDescription(dc);
     }
     
+    @GetMapping("/{reference}")
+    public Cookware getCookwareByReference(@PathVariable("reference") String reference){
+        return cookwareService.getCookwareByReference(reference);
+    }
+    
 }
